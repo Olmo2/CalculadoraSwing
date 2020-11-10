@@ -352,9 +352,8 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         String str;
         Float num1;
         Float num2;
-        int op;
-        
         int i = 0;
+        int inicio = 0;
 
         str = textResult.getText();
 
@@ -363,17 +362,15 @@ public class CalculadoraGUI extends javax.swing.JFrame {
             switch (str.charAt(i)) {
                 case '+':
                     if (i != 0) {
-                        num1 = Float.parseFloat(str.substring(0, i));
-                        op = 1;
+                        num1 = Float.parseFloat(str.substring(inicio, i));
                         num2 = Float.parseFloat(str.substring(i + 1));
                         textResult.setText(calc.suma(num1, num2));
+
                     }
                     break;
                 case '-':
                     if (i != 0) {
-
-                        num1 = Float.parseFloat(str.substring(0, i));
-                        op = 2;
+                        num1 = Float.parseFloat(str.substring(inicio, i));
                         num2 = Float.parseFloat(str.substring(i + 1));
                         textResult.setText(calc.resta(num1, num2));
                     }
@@ -381,20 +378,22 @@ public class CalculadoraGUI extends javax.swing.JFrame {
                     break;
                 case '*':
                     if (i != 0) {
-
-                        num1 = Float.parseFloat(str.substring(0, i));
-                        op = 3;
+                        num1 = Float.parseFloat(str.substring(inicio, i));
                         num2 = Float.parseFloat(str.substring(i + 1));
                         textResult.setText(calc.mult(num1, num2));
+                    } else {
+                        inicio = 1;
                     }
                     break;
                 case '/':
                     if (i != 0) {
-                        num1 = Float.parseFloat(str.substring(0, i));
-                        op = 3;
+                        num1 = Float.parseFloat(str.substring(inicio, i));
                         num2 = Float.parseFloat(str.substring(i + 1));
                         textResult.setText(calc.div(num1, num2));
+                    } else {
+                        inicio = 1;
                     }
+
                     break;
 
             }
