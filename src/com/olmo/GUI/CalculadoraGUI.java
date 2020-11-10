@@ -284,80 +284,102 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     private void buttonRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestActionPerformed
         txt = textResult.getText();
         textResult.setText(txt.concat(buttonRest.getText()));
+        aux1-=Float.parseFloat(currTxt);
+        currTxt="";
+        op=1;
+        
     }//GEN-LAST:event_buttonRestActionPerformed
 
     /*SUMA*/
     private void buttonSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSumActionPerformed
         txt = textResult.getText();
         textResult.setText(txt.concat(buttonSum.getText()));
+        aux1= Float.parseFloat(currTxt) + aux1;
+        currTxt="";
+        op=2;
     }//GEN-LAST:event_buttonSumActionPerformed
 
     /*NÚMERO 6*/
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(button6.getText());
+        System.out.println(currTxt);
+                
         textResult.setText(txt.concat(button6.getText()));
     }//GEN-LAST:event_button6ActionPerformed
     /*NÚMERO 1*/
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         txt = textResult.getText();
+        currTxt=currTxt.concat(button1.getText());
         textResult.setText(txt.concat(button1.getText()));
     }//GEN-LAST:event_button1ActionPerformed
 
     /*NÚMERO 4*/
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(button4.getText());
         textResult.setText(txt.concat(button4.getText()));
     }//GEN-LAST:event_button4ActionPerformed
     /*NÚMERO 2*/
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         txt = textResult.getText();
+        currTxt=currTxt.concat(button2.getText());
         textResult.setText(txt.concat(button2.getText()));
     }//GEN-LAST:event_button2ActionPerformed
 
     /*NÚMERO 3*/
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(button3.getText());
         textResult.setText(txt.concat(button3.getText()));
     }//GEN-LAST:event_button3ActionPerformed
 
     /*NÚMERO 5*/
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(button5.getText());
         textResult.setText(txt.concat(button5.getText()));
     }//GEN-LAST:event_button5ActionPerformed
 
     /*NÚMERO 7*/
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         txt = textResult.getText();
+      currTxt=  currTxt.concat(button7.getText());
         textResult.setText(txt.concat(button7.getText()));
     }//GEN-LAST:event_button7ActionPerformed
 
     /*NÚMERO 8*/
     private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(button8.getText());
         textResult.setText(txt.concat(button8.getText()));
     }//GEN-LAST:event_button8ActionPerformed
 
     /*NÚMERO 9*/
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(button9.getText());
         textResult.setText(txt.concat(button9.getText()));
     }//GEN-LAST:event_button9ActionPerformed
 
     /*IGUAL*/
-
     private void buttonEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEqActionPerformed
-        System.out.println(Float.parseFloat("6.2"));
-
+        
         String str;
         Float num1;
         Float num2;
         int i = 0;
         int inicio = 0;
-
         str = textResult.getText();
-
-        for (i = 0; i < str.length(); i++) {
+        textResult.setText(aux1.toString());
+        switch(op){
+            case 1:
+                num1=aux1;
+                num2=Float.parseFloat(currTxt);
+                calc.suma(num1, num2);
+                break;
+        }
+       /* for (i = 0; i < str.length(); i++) {
 
             switch (str.charAt(i)) {
                 case '+':
@@ -397,7 +419,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
                     break;
 
             }
-        }
+        }*/
 
     }//GEN-LAST:event_buttonEqActionPerformed
 
@@ -405,28 +427,37 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     private void buttonDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDivActionPerformed
         txt = textResult.getText();
         textResult.setText(txt.concat(buttonDiv.getText()));
+        aux1=Float.parseFloat(currTxt)/aux1;
+        currTxt="";
+        op=3;
     }//GEN-LAST:event_buttonDivActionPerformed
 
     /*MULTIPLICACIÓN*/
     private void buttonMultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMultActionPerformed
         txt = textResult.getText();
         textResult.setText(txt.concat(buttonMult.getText()));
+        aux1*=Float.parseFloat(currTxt);
+        currTxt="";
+        op=4;
     }//GEN-LAST:event_buttonMultActionPerformed
 
     /*BORRAR*/
     private void buttonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearActionPerformed
         textResult.setText("");
+        currTxt="";
     }//GEN-LAST:event_buttonClearActionPerformed
 
     /*PUNTO*/
     private void buttonDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDotActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(buttonDot.getText());
         textResult.setText(txt.concat(buttonDot.getText()));
     }//GEN-LAST:event_buttonDotActionPerformed
 
     /*CERO*/
     private void button0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button0ActionPerformed
         txt = textResult.getText();
+       currTxt= currTxt.concat(button0.getText());
         textResult.setText(txt.concat(button0.getText()));
     }//GEN-LAST:event_button0ActionPerformed
 
@@ -475,7 +506,14 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     }
 
     private String txt;
-
+    private String currTxt="";
+    private Float aux1 = (float)0;
+    private int op=0;
+    /*
+    1resta
+    2suma
+    3division
+    4multiplicacion*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button0;
     private javax.swing.JButton button1;
