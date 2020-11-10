@@ -18,12 +18,12 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-   Calculadora calc;
+    Calculadora calc;
+
     public CalculadoraGUI() {
-       calc = new Calculadora();
+        calc = new Calculadora();
         initComponents();
-       
-       
+
     }
 
     /**
@@ -52,6 +52,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         textResult = new javax.swing.JTextField();
         buttonClear = new javax.swing.JButton();
         buttonDot = new javax.swing.JButton();
+        button0 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,110 +177,118 @@ public class CalculadoraGUI extends javax.swing.JFrame {
             }
         });
 
+        button0.setText("0");
+        button0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button0ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(textResult, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(136, 136, 136))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(textResult, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(136, 136, 136))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(buttonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(24, 24, 24)
+                            .addComponent(buttonEq, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(87, 87, 87)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(buttonEq, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(buttonDot, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(buttonMult, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(buttonRest, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(buttonSum, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(buttonDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(button6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(87, 87, 87))))
+                                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(buttonSum, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonRest, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonMult, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(button0, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonDot, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(102, 102, 102)
                 .addComponent(textResult, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(buttonClear)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonEq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(button5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(button8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(button1)
+                                    .addComponent(button2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(button4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(button7)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(button3)
+                                .addComponent(buttonRest, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(button6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(button9)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonRest, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonSum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonDiv)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonMult))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(button5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(button8))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(button1)
-                                        .addComponent(button2))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(button4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(button7)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(button3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button9)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonEq)
-                            .addComponent(buttonDot))))
-                .addContainerGap(181, Short.MAX_VALUE))
+                        .addComponent(buttonDiv)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button0)
+                    .addComponent(buttonMult)
+                    .addComponent(buttonDot))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         textResult.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-  
-    
-    
+
     /*RESTA*/
     private void buttonRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestActionPerformed
-       txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(buttonRest.getText()));
     }//GEN-LAST:event_buttonRestActionPerformed
 
     /*SUMA*/
     private void buttonSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSumActionPerformed
-        txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(buttonSum.getText()));
     }//GEN-LAST:event_buttonSumActionPerformed
 
@@ -296,115 +305,131 @@ public class CalculadoraGUI extends javax.swing.JFrame {
 
     /*NÚMERO 4*/
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
-         txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(button4.getText()));
     }//GEN-LAST:event_button4ActionPerformed
     /*NÚMERO 2*/
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-         txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(button2.getText()));
     }//GEN-LAST:event_button2ActionPerformed
 
     /*NÚMERO 3*/
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
-      txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(button3.getText()));
     }//GEN-LAST:event_button3ActionPerformed
 
     /*NÚMERO 5*/
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
-         txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(button5.getText()));
     }//GEN-LAST:event_button5ActionPerformed
 
     /*NÚMERO 7*/
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
-        txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(button7.getText()));
     }//GEN-LAST:event_button7ActionPerformed
 
     /*NÚMERO 8*/
     private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
-         txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(button8.getText()));
     }//GEN-LAST:event_button8ActionPerformed
 
     /*NÚMERO 9*/
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
-         txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(button9.getText()));
     }//GEN-LAST:event_button9ActionPerformed
 
     /*IGUAL*/
-    
+
     private void buttonEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEqActionPerformed
-      
+        System.out.println(Float.parseFloat("6.2"));
+
         String str;
         Float num1;
         Float num2;
         int op;
+        
         int i = 0;
-        
-        str=textResult.getText();
-        
-        
-        for(i=0;i<str.length();i++){
-            
-            
-            switch(str.charAt(i)){
+
+        str = textResult.getText();
+
+        for (i = 0; i < str.length(); i++) {
+
+            switch (str.charAt(i)) {
                 case '+':
-                num1 = Float.parseFloat(str.substring(0,i));
-                op=1;
-                num2=Float.parseFloat(str.substring(i+1));
-               textResult.setText(calc.suma(num1,num2));
-               break;
-               case '-':
-                   
-                num1 = Float.parseFloat(str.substring(0,i));
-                op=2;
-                num2=Float.parseFloat(str.substring(i+1));
-               textResult.setText(calc.resta(num1,num2));
-               break;
-               case '*':
-                num1 = Float.parseFloat(str.substring(0,i));
-                op=3;
-                num2=Float.parseFloat(str.substring(i+1));
-               textResult.setText(calc.mult(num1,num2));
-               break;
-               case '/':
-                num1 = Float.parseFloat(str.substring(0,i));
-                op=3;
-                num2=Float.parseFloat(str.substring(i+1));
-               textResult.setText(calc.div(num1,num2));
-               break;
-               
+                    if (i != 0) {
+                        num1 = Float.parseFloat(str.substring(0, i));
+                        op = 1;
+                        num2 = Float.parseFloat(str.substring(i + 1));
+                        textResult.setText(calc.suma(num1, num2));
+                    }
+                    break;
+                case '-':
+                    if (i != 0) {
+
+                        num1 = Float.parseFloat(str.substring(0, i));
+                        op = 2;
+                        num2 = Float.parseFloat(str.substring(i + 1));
+                        textResult.setText(calc.resta(num1, num2));
+                    }
+
+                    break;
+                case '*':
+                    if (i != 0) {
+
+                        num1 = Float.parseFloat(str.substring(0, i));
+                        op = 3;
+                        num2 = Float.parseFloat(str.substring(i + 1));
+                        textResult.setText(calc.mult(num1, num2));
+                    }
+                    break;
+                case '/':
+                    if (i != 0) {
+                        num1 = Float.parseFloat(str.substring(0, i));
+                        op = 3;
+                        num2 = Float.parseFloat(str.substring(i + 1));
+                        textResult.setText(calc.div(num1, num2));
+                    }
+                    break;
+
             }
         }
-        
+
     }//GEN-LAST:event_buttonEqActionPerformed
 
     /*DIVISIÓN*/
     private void buttonDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDivActionPerformed
-        txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(buttonDiv.getText()));
     }//GEN-LAST:event_buttonDivActionPerformed
 
     /*MULTIPLICACIÓN*/
     private void buttonMultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMultActionPerformed
-         txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(buttonMult.getText()));
     }//GEN-LAST:event_buttonMultActionPerformed
 
     /*BORRAR*/
     private void buttonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearActionPerformed
-       textResult.setText("");
+        textResult.setText("");
     }//GEN-LAST:event_buttonClearActionPerformed
 
     /*PUNTO*/
     private void buttonDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDotActionPerformed
-       txt=textResult.getText();
+        txt = textResult.getText();
         textResult.setText(txt.concat(buttonDot.getText()));
     }//GEN-LAST:event_buttonDotActionPerformed
+
+    /*CERO*/
+    private void button0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button0ActionPerformed
+        txt = textResult.getText();
+        textResult.setText(txt.concat(button0.getText()));
+    }//GEN-LAST:event_button0ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,10 +475,10 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         this.textResult.setText(textResult);
     }
 
-    
     private String txt;
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button0;
     private javax.swing.JButton button1;
     private javax.swing.JButton button2;
     private javax.swing.JButton button3;
