@@ -321,8 +321,12 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     private void buttonRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRestActionPerformed
         txt = textResult.getText();
         textResult.setText(txt.concat(buttonRest.getText()));
+        if(textResult.getText().length()==1){
+        currTxt = currTxt.concat(buttonRest.getText());
+        }else{
         op = 1;
         ev();
+        }
 
     }//GEN-LAST:event_buttonRestActionPerformed
 
@@ -330,8 +334,12 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     private void buttonSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSumActionPerformed
         txt = textResult.getText();
         textResult.setText(txt.concat(buttonSum.getText()));
+        if(textResult.getText().length()==1){
+        currTxt = currTxt.concat(buttonSum.getText());
+        }else{
         op = 2;
         ev();
+        }
     }//GEN-LAST:event_buttonSumActionPerformed
 
     /*NÚMERO 6*/
